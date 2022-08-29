@@ -19,15 +19,24 @@ export default {
     setup() {
         let bot_name = ref("")
         let bot_rating = ref("")
-        $.ajax({
-            url: "http://127.0.0.1:8090/pk/botinfo",
-            type: "get",
-            success: (resp) => {
-                console.log(resp)
-                bot_name.value = resp.name
-                bot_rating.value = resp.rating
-            },
-        })
+
+        // $.ajax({
+        //     url: "http://127.0.0.1:8090/user/account/register",
+        //     type: "post",
+        //     data: {
+        //         username: "chenshone123",
+        //         password: "123456",
+        //         confirmedPassword: "123456",
+        //     },
+        //     success: (resp) => {
+        //         console.log(resp)
+        //         // bot_name.value = resp.name
+        //         // bot_rating.value = resp.rating
+        //     },
+        //     error(resp) {
+        //         console.log(resp)
+        //     },
+        // })
         return {
             bot_name,
             bot_rating,
