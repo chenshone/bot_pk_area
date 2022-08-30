@@ -19,6 +19,7 @@
                             type="password"
                             class="form-control"
                             id="password"
+                            placeholder="请输入密码"
                             v-model="password"
                         />
                     </div>
@@ -53,15 +54,11 @@ export default {
                             router.push({
                                 name: "home",
                             })
-                            console.log(resp.username)
                         },
-                        error(resp) {
-                            console.log(resp)
-                        },
+                        error(resp) {},
                     })
                 },
                 error(resp) {
-                    console.log(resp)
                     error_message.value = "用户名或密码错误"
                 },
             })

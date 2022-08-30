@@ -1,3 +1,4 @@
+import router from "@/router"
 import $ from "jquery"
 export default {
     state: {
@@ -33,8 +34,8 @@ export default {
                 type: "post",
                 data: { username: data.username, password: data.password },
                 success: (resp) => {
-                    // console.log(resp)
                     if (resp.message === "success") {
+                        localStorage.setItem("jwt_token", resp.token)
                         context.commit("updateToken", resp.token)
                         data.success(resp)
                     } else {
@@ -71,7 +72,9 @@ export default {
         },
         logout(context) {
             context.commit("logout")
+            localStorage.removeItem("jwt_token")
         },
     },
+
     modules: {},
 }

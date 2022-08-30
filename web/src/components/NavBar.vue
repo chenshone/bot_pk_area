@@ -104,16 +104,18 @@
 
 <script>
 import { computed } from "vue"
-import { useRoute } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 import { useStore } from "vuex"
 
 export default {
     setup() {
         const store = useStore()
         const route = useRoute()
+        const router = useRouter()
         let route_name = computed(() => route.name)
         const logout = () => {
             store.dispatch("logout")
+            router.go(-1)
         }
         return { route_name, logout }
     },
