@@ -119,7 +119,7 @@
                 <label for="codeInput" class="form-label">代码</label>
                 <VAceEditor
                   @init="editorInit"
-                  lang="c_cpp"
+                  lang="java"
                   theme="textmate"
                   style="height: 300px"
                   v-model:value="botAdd.content"
