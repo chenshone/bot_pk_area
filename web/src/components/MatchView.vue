@@ -58,7 +58,7 @@ export default {
 
     const getBotList = () => {
       $.ajax({
-        url: "http://localhost:8090/user/bot/get-list",
+        url: "http://127.0.0.1:8090/user/bot/get-list",
         type: "get",
         headers: {
           Authorization: "Bearer " + store.state.user.token,

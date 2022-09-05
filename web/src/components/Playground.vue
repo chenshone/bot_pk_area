@@ -1,7 +1,7 @@
 <template>
   <div class="playground">
     <GameMap></GameMap>
-    <div class="player_container">
+    <div class="player_container" v-if="!$store.state.record.is_record">
       <div class="player row justify-content-center">
         <span class="col-6">你当前的操作的角色颜色是</span>
         <div

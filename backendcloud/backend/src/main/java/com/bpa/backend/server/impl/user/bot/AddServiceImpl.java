@@ -1,5 +1,6 @@
 package com.bpa.backend.server.impl.user.bot;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.bpa.backend.mapper.BotMapper;
 import com.bpa.backend.pojo.Bot;
 import com.bpa.backend.pojo.User;
@@ -53,6 +54,13 @@ public class AddServiceImpl implements AddService {
         }
         if (content.length() > 100000) {
             map.put("message", "bot代码长度不能大于100000");
+            return map;
+        }
+
+        QueryWrapper<Bot> botQueryWrapper = new QueryWrapper<>();
+        botQueryWrapper.eq("user_id", user.getId());
+        if (botMapper.selectCount(botQueryWrapper) >= 10) {
+            map.put("message", "每个用户最多创建10个bot");
             return map;
         }
 

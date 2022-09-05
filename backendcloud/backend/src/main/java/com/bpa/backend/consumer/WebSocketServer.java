@@ -28,7 +28,7 @@ public class WebSocketServer {
     private final static String removePlayerUrl = "http://127.0.0.1:8091/player/remove";
     public static RecordMapper recordMapper;
     public static RestTemplate restTemplate;
-    private static UserMapper userMapper;
+    public static UserMapper userMapper;
     private static BotMapper botMapper;
     public Game game = null;
     private User user;

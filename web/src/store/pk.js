@@ -1,5 +1,3 @@
-import router from "@/router"
-import $ from "jquery"
 export default {
   state: {
     status: "matching", // matching 匹配界面， playing 对战界面

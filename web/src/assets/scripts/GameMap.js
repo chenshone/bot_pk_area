@@ -34,23 +34,45 @@ export class GameMap extends GameObject {
   }
 
   addKeyMapListener() {
-    this.ctx.canvas.focus()
-
-    this.ctx.canvas.addEventListener("keydown", (e) => {
-      let d = -1
-      if (e.key === "w") d = 0
-      else if (e.key === "d") d = 1
-      else if (e.key === "s") d = 2
-      else if (e.key === "a") d = 3
-      if (d >= 0) {
-        this.store.state.pk.socket.send(
-          JSON.stringify({
-            event: "move",
-            direction: d,
-          })
-        )
-      }
-    })
+    if (this.store.state.record.is_record) {
+      let k = 0
+      const [snake0, snake1] = this.snakes
+      const a_steps = this.store.state.record.a_steps
+      const b_steps = this.store.state.record.b_steps
+      const recordLoser = this.store.state.record.recordLoser
+      const intervalId = setInterval(() => {
+        if (k >= a_steps.length - 1) {
+          if (recordLoser === "all" || recordLoser === "A") {
+            snake0.status = "die"
+          }
+          if (recordLoser === "all" || recordLoser === "B") {
+            snake1.status = "die"
+          }
+          clearInterval(intervalId)
+        } else {
+          snake0.setDirection(parseInt(a_steps[k]))
+          snake1.setDirection(parseInt(b_steps[k]))
+          k++
+        }
+      }, 300)
+    } else {
+      this.ctx.canvas.focus()
+      this.ctx.canvas.addEventListener("keydown", (e) => {
+        let d = -1
+        if (e.key === "w") d = 0
+        else if (e.key === "d") d = 1
+        else if (e.key === "s") d = 2
+        else if (e.key === "a") d = 3
+        if (d >= 0) {
+          this.store.state.pk.socket.send(
+            JSON.stringify({
+              event: "move",
+              direction: d,
+            })
+          )
+        }
+      })
+    }
   }
 
   start() {
