@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/ranklist")
+@RequestMapping("/api/ranklist")
 public class GetRankListController {
     @Resource
     private GetRankListService getRankListService;

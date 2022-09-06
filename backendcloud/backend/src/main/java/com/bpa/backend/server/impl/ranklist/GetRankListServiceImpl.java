@@ -19,7 +19,7 @@ public class GetRankListServiceImpl implements GetRankListService {
 
     @Override
     public JSONObject getList(Integer page) {
-        IPage<User> userPage = new Page<>(page, 3);
+        IPage<User> userPage = new Page<>(page, 10);
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
         userQueryWrapper.orderByDesc("rating");
         List<User> userList = userMapper.selectPage(userPage, userQueryWrapper).getRecords();

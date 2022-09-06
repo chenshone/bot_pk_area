@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user/bot")
+@RequestMapping("/api/user/bot")
 public class UpdateController {
     @Resource
     UpdateService updateService;

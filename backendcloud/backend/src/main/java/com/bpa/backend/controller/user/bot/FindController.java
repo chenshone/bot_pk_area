@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user/bot")
+@RequestMapping("/api/user/bot")
 public class FindController {
     @Resource
     FindService findService;

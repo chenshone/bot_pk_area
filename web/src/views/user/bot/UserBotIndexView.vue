@@ -191,7 +191,7 @@ export default {
 
     const getBotList = () => {
       $.ajax({
-        url: "http://127.0.0.1:8090/user/bot/get-list",
+        url: "http://bpa.chenshone.top/api/user/bot/get-list",
         type: "get",
         headers: {
           Authorization: "Bearer " + store.state.user.token,
@@ -204,7 +204,7 @@ export default {
     const addBot = () => {
       botAdd.errorMessage = ""
       $.ajax({
-        url: "http://127.0.0.1:8090/user/bot/add",
+        url: "http://bpa.chenshone.top/api/user/bot/add",
         type: "post",
         headers: {
           Authorization: "Bearer " + store.state.user.token,
@@ -231,7 +231,7 @@ export default {
     const updateBot = () => {
       botAdd.errorMessage = ""
       $.ajax({
-        url: "http://127.0.0.1:8090/user/bot/update",
+        url: "http://bpa.chenshone.top/api/user/bot/update",
         type: "post",
         headers: {
           Authorization: "Bearer " + store.state.user.token,
@@ -257,7 +257,7 @@ export default {
     }
     const removeBot = (botId) => {
       $.ajax({
-        url: "http://127.0.0.1:8090/user/bot/remove",
+        url: "http://bpa.chenshone.top/api/user/bot/remove",
         type: "post",
         headers: {
           Authorization: "Bearer " + store.state.user.token,

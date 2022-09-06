@@ -1,10 +1,12 @@
 package com.bpa.botrunningsystem.utils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class Bot implements com.bpa.botrunningsystem.utils.BotInterface {
-    @Override
+public class Bot implements java.util.function.Supplier<Integer> {
     public Integer nextStep(String input) {
         String[] split = input.split("#");
         int[][] g = new int[13][14];
@@ -66,6 +68,18 @@ public class Bot implements com.bpa.botrunningsystem.utils.BotInterface {
         }
 
         return res;
+    }
+
+    @Override
+    public Integer get() {
+        File file = new File("input.txt");
+        try {
+            Scanner sc = new Scanner(file);
+            return nextStep(sc.next());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     static class Cell {

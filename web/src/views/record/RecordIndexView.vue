@@ -96,7 +96,7 @@ export default {
 
     const getRecordList = (page) => {
       $.ajax({
-        url: "http://127.0.0.1:8090/record/getlist",
+        url: "http://bpa.chenshone.top/api/record/getlist",
         type: "get",
         data: {
           page,

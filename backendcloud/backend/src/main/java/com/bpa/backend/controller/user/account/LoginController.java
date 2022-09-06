@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user/account")
+@RequestMapping("/api/user/account")
 public class LoginController {
     @Resource
     private LoginService loginService;

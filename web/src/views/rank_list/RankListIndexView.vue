@@ -66,7 +66,7 @@ export default {
     let pages = ref([])
 
     const updatePages = () => {
-      maxPages.value = parseInt(Math.ceil(totalUsers.value / 3))
+      maxPages.value = parseInt(Math.ceil(totalUsers.value / 10))
       let newPages = []
       for (let i = currentPage.value - 2; i <= currentPage.value + 2; i++) {
         if (i >= 1 && i <= maxPages.value) {
@@ -78,7 +78,7 @@ export default {
 
     const getUserList = (page) => {
       $.ajax({
-        url: "http://127.0.0.1:8090/ranklist/getlist",
+        url: "http://bpa.chenshone.top/api/ranklist/getlist",
         type: "get",
         data: {
           page,
